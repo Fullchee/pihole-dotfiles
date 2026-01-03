@@ -13,10 +13,6 @@
       "name": "~/.config/karabiner"
     },
     {
-      "path": "../.local/bin",
-      "name": "~/.local/bin"
-    },
-    {
       "path": "../.ssh/",
       "name": "~/.ssh"
     },
