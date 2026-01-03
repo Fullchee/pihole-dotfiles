@@ -3,15 +3,14 @@
 sudo apt update;
 sudo apt upgrade -y;
 
+chsh -s $(which zsh);  # set zsh as default shell
+
 sudo apt -y install bat;  # better cat
 sudo apt -y install eza;  # better ls + tree with git and icons
 sudo apt -y install fzf;  # filter in STDIN https://github.com/junegunn/fzf
 sudo apt -y install git;
 sudo apt -y install hx;  # helix: vim with builtin LSP
 curl -sSL https://install.pi-hole.net | bash  # pi-hole
-sudo apt -y install zsh;
-
-chsh -s $(which zsh)
 
 # install prezto
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' $@
