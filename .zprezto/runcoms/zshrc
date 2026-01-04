@@ -11,7 +11,9 @@ fi
 alias cat=batcat
 alias -s {js,json,env,md,html,css,toml}=cat
 
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' $@
+config() {
+   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME "$@"
+}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
