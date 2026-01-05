@@ -28,7 +28,7 @@
 6. Generate an SSH key
    1. `ssh-keygen`
 7. Copy the value of the public SSH key
-   1. `cat ~/.ssh/id_ed25519.pub`
+   1. `cat ~/.ssh/id_ed25519.pub | xclip`
 8. Add the key to GitHub as a deploy key (can just access this one repo)
    1. https://github.com/Fullchee/pihole-dotfiles/settings/keys
 9. Install and switch to zsh
