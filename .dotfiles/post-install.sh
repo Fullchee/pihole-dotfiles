@@ -1,7 +1,22 @@
-#!/bin/zsh
+#!/bin/bash
 
 sudo apt update;
 sudo apt upgrade -y;
+
+# is zsh is installed?
+if ! command -v zsh &> /dev/null; then
+    echo "Zsh not found. Installing..."
+    sudo apt update && sudo apt install -y zsh
+fi
+
+# 2. Check if we are currently running in zsh
+if [ -z "$ZSH_VERSION" ]; then
+    echo "Switching context to Zsh..."
+    exec zsh "$0" "$@"
+fi
+
+# --- Everything below this line will run in Zsh ---
+echo "Now running in $(zsh --version)"
 
 chsh -s $(which zsh);  # set zsh as default shell
 

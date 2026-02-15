@@ -2,39 +2,58 @@
 
 ## Setup
 
-### On mac
+### On Mac
 
 1. Install Raspberry Pi OS on an SD card
    1. `brew install --cask raspberry-pi-imager`
    2. Pick the latest `lite` debian version
-   3. set the user to be `pi`, call the computer `pihole`
+   3. set the user to be `pihole`, call the computer `pihole`
 2. Connect the pihole to power and to router via ethernet
-3. SSH config (on mac)
-   1. Find the pihole's IP address (router app)
-   2. `ssh pi@<ip-address>`
-   3. Update the IP address in `~/.ssh/config`
-   4. `ssh-copy-id pi@<ip-address>`
-   5. now you can just login with `ssh pi@<ip-address>`
-4. Router: reserve that IP address
-   1. I don't know how to do this with the Beanfield Airties Air 4960x, even when logged into http://masternode.local/
-5. Update the IP address in https://github.com/Fullchee/mac-dotfiles/blob/.ssh/config
+
+### Asus router
+
+1. Open the router app
+   1. <http://asusrouter.com>
+2. Get the IP address of the pihole
+   1. Confirm you can `ssh pihole@<ip-address>`
+   2. Run `sudo apt update` in the background
+3. Router: reserve that IP address
+   1. Asus: LAN -> DHCP -> Manually Assigned IP -> scroll down
+   2. Can't do this with Beanfield Airties Air 4960x, even when logged into http://masternode.local/
+
+### Mac terminal
+
+1. `ssh-copy-id pihole@<ip-address>`
+   1. (ssh without the typing the password)
+2. `~/.ssh/config`: update the IP address of the `pihole` entry
+3. Confirm you can `ssh pihole`
 
 ### SSHed on pihole
 
-5. Set the static IP address on the Pihole OS
-   1. `ip a`
-   2. `sudo nmcli con mod "netplan-eth0" ipv4.addresses 10.88.111.14/24 ipv4.gateway 10.88.111.254 ipv4.dns "1.1.1.1,8.8.8.8" ipv4.method manual`
-   3. `sudo nmcli con up "netplan-eth0"`
-6. Generate an SSH key
+1. Set the static IP address on the OS level
+
+```sh
+CURRENT_IP=$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}/\d+') && \
+CURRENT_GW=$(ip route show default | grep eth0 | awk '{print $3}') && \
+sudo nmcli con mod "netplan-eth0" \
+  ipv4.addresses "$CURRENT_IP" \
+  ipv4.gateway "$CURRENT_GW" \
+  ipv4.dns "1.1.1.1,8.8.8.8" \
+  ipv4.method manual && \
+sudo nmcli con up "netplan-eth0" && \
+echo -e "\nConfigured Static Settings:\nIP: $CURRENT_IP\nGateway: $CURRENT_GW"
+```
+
+2. Generate an SSH key
    1. `ssh-keygen`
-7. Copy the value of the public SSH key
-   1. `cat ~/.ssh/id_ed25519.pub | xclip`
-8. Add the key to GitHub as a deploy key (can just access this one repo)
+2. Copy the value of the public SSH key
+   1. `cat ~/.ssh/id_ed25519.pub`
+3. Add the key to GitHub as a deploy key (can just access this one repo)
    1. https://github.com/Fullchee/pihole-dotfiles/settings/keys
-9. Install and switch to zsh
-10. `sudo apt -y install zsh;`
-11. `/bin/zsh`
-12. Setup the bare git repo
+4. Install and switch to zsh
+5.  `sudo apt -y install zsh;`
+6.  `/bin/zsh`
+7.  Setup the bare git repo
 
 ```bash
 git init --bare $HOME/.cfg
