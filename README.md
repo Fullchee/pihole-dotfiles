@@ -50,6 +50,7 @@ config() {
 config config --local status.showUntrackedFiles no
 config remote add origin git@github.com:Fullchee/pihole-dotfiles.git
 config fetch origin main
+config checkout main
 config reset --hard origin/main
 config branch --set-upstream-to=origin/main main
 bash ~/.dotfiles/post-install.sh
