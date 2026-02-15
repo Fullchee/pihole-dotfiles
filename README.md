@@ -46,14 +46,14 @@ echo -e "\nConfigured Static Settings:\nIP: $CURRENT_IP\nGateway: $CURRENT_GW"
 
 2. Generate an SSH key
    1. `ssh-keygen`
-2. Copy the value of the public SSH key
+3. Copy the value of the public SSH key
    1. `cat ~/.ssh/id_ed25519.pub`
-3. Add the key to GitHub as a deploy key (can just access this one repo)
+4. Add the key to GitHub as a deploy key (can just access this one repo)
    1. https://github.com/Fullchee/pihole-dotfiles/settings/keys
-4. Install and switch to zsh
-5.  `sudo apt -y install zsh;`
-6.  `/bin/zsh`
-7.  Setup the bare git repo
+5. Install and switch to zsh
+6. `sudo apt -y install zsh;`
+7. `/bin/zsh`
+8. Setup the bare git repo
 
 ```bash
 git init --bare $HOME/.cfg
@@ -71,4 +71,4 @@ zsh ~/.dotfiles/post-install.sh
 ### Browser
 
 1. Go to IP address
-2.  http://[ip-address-of-pihole]/admin
+2. http://[ip-address-of-pihole]/admin
