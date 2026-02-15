@@ -58,5 +58,6 @@ bash ~/.dotfiles/post-install.sh
 
 ### Browser
 
-1. Go to IP address
-2. http://[ip-address-of-pihole]/admin
+1. Open pihole and import config
+2. http://192.168.50.8/admin/settings/teleporter
+3. Create a 
