@@ -68,9 +68,7 @@ config branch --set-upstream-to=origin/main main
 zsh ~/.dotfiles/post-install.sh
 ```
 
-12. Install pihole
-    1.  `curl -sSL https://install.pi-hole.net | bash`
-13. Update the password `sudo pihole setpassword`
-14. Go to Pi-hole admin interface
-    1.  http://[ip-address-of-pihole]/admin
-15.
+### Browser
+
+1. Go to IP address
+2.  http://[ip-address-of-pihole]/admin
