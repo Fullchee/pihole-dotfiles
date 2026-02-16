@@ -60,6 +60,14 @@ bash ~/.dotfiles/post-install.sh
 
 1. Open pihole and import config
 2. http://192.168.50.8/admin/settings/teleporter
-3. Browser: ensure you have Secure DNS disabled
+3. Turn off Secure DNS in browsers
    1. `chrome://settings/security?search=secure+dns`
-4. 
+   2. Firefox: `about:preferences` -> search for `DNS over HTTPS` -> disable it
+
+### Wrap up
+
+1. Mac `System Settings` -> search for `DNS` -> Enter just the Pihole's IP address as the sole DNS server
+   1. `iCloud` -> turn off Private Relay
+2. Change passwords
+   1. Raspberry pi
+   2. pihole password
