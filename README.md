@@ -60,4 +60,6 @@ bash ~/.dotfiles/post-install.sh
 
 1. Open pihole and import config
 2. http://192.168.50.8/admin/settings/teleporter
-3. Remove the 
+3. Browser: ensure you have Secure DNS disabled
+   1. `chrome://settings/security?search=secure+dns`
+4. 
