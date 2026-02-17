@@ -128,3 +128,5 @@ alias connectToDrive="google-drive-ocamlfuse ~/google-drive"
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' $@
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+. "$HOME/.local/bin/env"
