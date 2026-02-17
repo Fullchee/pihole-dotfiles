@@ -39,6 +39,6 @@ mac-setup:
     prek install
 
 linux-setup:
-    sudo apt -y install just;  # for better Makefiles
     # install prek
     curl --proto '=https' --tlsv1.2 -LsSf https://github.com/j178/prek/releases/download/v0.3.3/prek-installer.sh | sh
+    prek install

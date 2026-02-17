@@ -1,14 +1,31 @@
 # Pihole dotfiles
 
+## Saving pihole changes to dotfiles
+
+### pihole
+1. `ssh pihole`
+2. `sudo pihole-FTL --teleporter`
+3. Move it to the `.dotfiles` folder
+
+### Browser
+
+1. Go to <http://pi.hole/admin/settings/teleporter>
+2. Export the zip file into the `pihole-dotfiles/.dotfiles` folder
+3. Commit the pihole file
+   1. `prek` will only keep the latest version
+
 ## Setup
 
 ### On Mac
 
-1. Install Raspberry Pi OS on an SD card
+1. Clone this repo
+   1. `gh repo clone Fullchee/pihole-dotfiles`
+3. `just mac-setup`
+4. Install Raspberry Pi OS on an SD card
    1. `brew install --cask raspberry-pi-imager`
    2. Pick the latest `lite` debian version
    3. set the user to be `pihole`, call the computer `pihole`
-2. Connect the pihole to power and to router via ethernet
+5. Connect the pihole to power and to router via ethernet
 
 ### Asus router
 
