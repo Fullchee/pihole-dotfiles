@@ -1,14 +1,3 @@
-
-mac-setup:
-    brew install --cask raspberry-pi-imager
-    brew install prek
-    prek install
-
-linux-setup:
-    sudo apt -y install just;  # for better Makefiles
-    # install prek
-    curl --proto '=https' --tlsv1.2 -LsSf https://github.com/j178/prek/releases/download/v0.3.3/prek-installer.sh | sh
-
 # Prune older Pi-hole teleporter files, keeping only the latest.
 prune-teleporter:
     #!/usr/bin/env bash
@@ -20,3 +9,14 @@ prune-teleporter:
             git rm --quiet "$f" 2>/dev/null || rm -f "$f"
         fi
     done
+
+
+mac-setup:
+    brew install --cask raspberry-pi-imager
+    brew install prek
+    prek install
+
+linux-setup:
+    sudo apt -y install just;  # for better Makefiles
+    # install prek
+    curl --proto '=https' --tlsv1.2 -LsSf https://github.com/j178/prek/releases/download/v0.3.3/prek-installer.sh | sh

@@ -1,5 +1,12 @@
 [[repos]]
 repo = "local"
-hooks = [
-  { id = "prune-teleporter", name = "Prune Pi-hole teleporter files", language = "system", entry = "just prune-teleporter", files = "^\\.dotfiles/", pass_filenames = false, stages = ["pre-commit"], description = "Run 'just prune-teleporter' when files under .dotfiles change" },
-]
+
+  [[repos.hooks]]
+  id              = "prune-teleporter"
+  name            = "Prune Pi-hole teleporter files"
+  description     = "Run 'just prune-teleporter' when files under .dotfiles change"
+  language        = "system"
+  entry           = "just prune-teleporter"
+  files           = "^\\.dotfiles/"
+  pass_filenames  = false
+  stages          = ["pre-commit"]
