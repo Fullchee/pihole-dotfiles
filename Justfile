@@ -34,7 +34,7 @@ prune-teleporter:
     echo "   Kept: $(basename "$latest")"
 
 ssh-update-config:
-    ssh -t pihole "zsh -ci \"cd .dotfiles && sudo pihole-FTL --teleporter && just prune-teleporter && config add . && configpush 'Update pihole config in dotfiles repo'\""
+    ssh -t pihole "zsh -ci \"cd .dotfiles && sudo pihole-FTL --teleporter && just prune-teleporter && config add . && config pull && configpush 'Update pihole config in dotfiles repo'\""
 
 mac-setup:
     brew install --cask raspberry-pi-imager
