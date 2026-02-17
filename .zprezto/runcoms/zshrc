@@ -8,14 +8,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-alias cat=batcat
-alias -s {js,json,env,md,html,css,toml}=cat
+source "$HOME/.dotfiles/git-scripts.sh"
 
-config() {
-   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME "$@"
-}
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source "$HOME/.fzf.zsh"
 
 alias la="eza --icons --grid --all"
 alias ll='eza -la --git --icons'
@@ -43,7 +38,7 @@ function ls() {
 #	tree . 1
 # 	tree folder_name 2
 tree() {
-	eza --tree --icons --git-ignore -L "${2:-2}" "${1:-.}"
+  eza --tree --icons --git-ignore -L "${2:-2}" "${1:-.}"
 }
 mkcd() {
   mkdir "$1"
