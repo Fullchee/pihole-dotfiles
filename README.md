@@ -1,4 +1,4 @@
-# Ubuntu dotfiles
+# Pihole dotfiles
 
 ## Setup
 

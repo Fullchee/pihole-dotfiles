@@ -25,7 +25,11 @@ sudo apt -y install eza;  # better ls + tree with git and icons
 sudo apt -y install fzf;  # filter in STDIN https://github.com/junegunn/fzf
 sudo apt -y install git;
 sudo apt -y install hx;  # helix: vim with builtin LSP
-curl -sSL https://install.pi-hole.net | bash  # pihole
+sudo apt -y install just;  # for better Makefiles
+# pihole
+curl -sSL https://install.pi-hole.net | bash
+# prek
+curl --proto '=https' --tlsv1.2 -LsSf https://github.com/j178/prek/releases/download/v0.3.3/prek-installer.sh | sh
 
 # install prezto
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' $@
