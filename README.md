@@ -2,10 +2,9 @@
 
 ## Saving pihole changes to dotfiles
 
-### pihole
-1. `ssh pihole`
-2. `sudo pihole-FTL --teleporter`
-3. Move it to the `.dotfiles` folder
+### Mac
+
+Run `ssh-update-pihole-config`
 
 ### Browser
 
